@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+body{
+  font-family: 'Poppins', sans-serif;
+}
+.main-nav-box{
+  /* background-color: rgb(219, 140, 140); */
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
+  letter-spacing: 1px;
+}
+.main-nav-box button{
+  background-color: orange;
+  border: 0;
+  outline: 0;
+  padding: 5px 20px;
+  color: white;
+  font-weight: 800;
+  border-radius: 10px;
+}
+.main-nav-box button:hover{
+  background-color: orangered;
+  transition: 0.5s ease;
+  box-shadow: 0 0 7px 1px #c46666;
+}
+
+.navbar-components{
+  display: flex;
+  width: 50%;
+  /* background-color: aqua; */
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.navbar-itmes{
+  list-style: none;
+  cursor: pointer;
+  font-weight: 900;
+}
+.navbar-itmes:hover{
+  color: rgb(228, 120, 31);
+  transition: 0.1s ease-in-out;
+  text-decoration: underline;
+}
+
+/* recommended topics */
+.recommendedTopicBox{
+  height: 70px;
+  width: 80%;
+  margin: 2px;
+  /* background-color: rgba(175, 163, 146, 0.425); */
+  padding-left: 20px;
+  border: 0.5px solid rgb(175, 169, 169);
+  position: relative;
+}
+.recommendedTopicBox button{
+  position: absolute;
+  right: 10px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: 0;
+  outline: 0;
+  background-color: orange;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+}
