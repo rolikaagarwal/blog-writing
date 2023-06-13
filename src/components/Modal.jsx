@@ -5,22 +5,25 @@ const Modal = () => {
   const MyModal = () => {
     return (
       <>
-        <div className="modal-wrapper"></div>
+        <div className="modal-wrapper" onClick={CloseModal}></div>
         <div className="modal-container">
-          <form>
-            <input type="text" placeholder="Enter Title" />
-            <textarea
-              name="content"
-              id=""
-              cols="30"
-              rows="10"
-              placeholder="write post"
-            ></textarea>
+          <label htmlFor="title">Title : </label>
+          <input type="text" className="title" placeholder="Enter Title" />
+          <label htmlFor="post">Content : </label>
+          <textarea
+            className="post"
+            name="content"
+            id=""
+            cols={153}
+            rows={80}
+            placeholder="Write Post Content"
+          ></textarea>
+          <div className="generate-cancel-buttons">
             <button className="generate">Generate</button>
             <button className="cancel" onClick={CloseModal}>
               Cancel
             </button>
-          </form>
+          </div>
         </div>
       </>
     );

@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
-body{
-  font-family: 'Poppins', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+body {
+  font-family: "Poppins", sans-serif;
 }
-.main-nav-box{
+.main-nav-box {
   /* background-color: rgb(219, 140, 140); */
   display: flex;
   justify-content: space-between;
   width: 70%;
   letter-spacing: 1px;
 }
-.main-nav-box button{
+.main-nav-box button {
   background-color: orange;
   border: 0;
   outline: 0;
@@ -18,13 +18,13 @@ body{
   font-weight: 800;
   border-radius: 10px;
 }
-.main-nav-box button:hover{
+.main-nav-box button:hover {
   background-color: orangered;
   transition: 0.5s ease;
   box-shadow: 0 0 7px 1px #c46666;
 }
 
-.navbar-components{
+.navbar-components {
   display: flex;
   width: 50%;
   /* background-color: aqua; */
@@ -32,19 +32,19 @@ body{
   cursor: pointer;
 }
 
-.navbar-itmes{
+.navbar-itmes {
   list-style: none;
   cursor: pointer;
   font-weight: 900;
 }
-.navbar-itmes:hover{
+.navbar-itmes:hover {
   color: rgb(228, 120, 31);
   transition: 0.1s ease-in-out;
   text-decoration: underline;
 }
 
 /* recommended topics */
-.recommendedTopicBox{
+.recommendedTopicBox {
   height: 70px;
   width: 80%;
   margin: 1px;
@@ -53,7 +53,7 @@ body{
   border: 0.5px solid rgb(175, 169, 169);
   position: relative;
 }
-.recommendedTopicBox button{
+.recommendedTopicBox button {
   position: absolute;
   right: 10px;
   margin-top: 10px;
@@ -64,4 +64,62 @@ body{
   color: white;
   font-size: 17px;
   cursor: pointer;
+}
+
+/* modal styles  */
+
+.modal-wrapper {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgb(214, 201, 201);
+  z-index: 1;
+}
+.modal-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-radius: 10px;
+  width: 70%;
+  height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  z-index: 2;
+}
+.generate-cancel-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+.generate-cancel-buttons .generate,
+.cancel {
+  background-color: darkgoldenrod;
+  padding: 10px 20px;
+  border: 0;
+  outline: 0;
+  margin-left: 30px;
+  color: beige;
+  font-size: 18px;
+  border-radius: 15px;
+}
+.modal-container .title,
+.post {
+  /* background-color: aqua; */
+  border-radius: 5px;
+  font-size: 18px;
+  padding: 8px;
+  border: 0;
+  outline: 0;
+}
+.modal-container .title:focus {
+  border-left: 2px solid orange;
+}
+.modal-container .post:focus {
+  border-left: 2px solid orange;
 }
