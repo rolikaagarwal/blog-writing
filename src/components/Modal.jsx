@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const Modal = () => {
   const [modal, setShowModal] = useState(false);
@@ -27,7 +27,10 @@ const Modal = () => {
       const handleUndo = (e) => {
         if (e.ctrlKey && e.key === "z") {
           e.preventDefault();
-          if (document.activeElement.id === "title" && titleHistory.length > 1) {
+          if (
+            document.activeElement.id === "title" &&
+            titleHistory.length > 1
+          ) {
             const updatedTitleHistory = [...titleHistory];
             updatedTitleHistory.pop();
             setTitle(updatedTitleHistory[updatedTitleHistory.length - 1]);
@@ -120,4 +123,3 @@ const Modal = () => {
 };
 
 export default Modal;
-``
