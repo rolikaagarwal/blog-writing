@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
 import randomColor from "randomcolor";
 import { useState } from "react";
+import "./Custom.css";
 
-const Custom = ({ topics, onRemoveKeyword }) => {
+const Custom = ({ topics, onRemoveTopic }) => {
   const [hoveredKeyword, setHoveredKeyword] = useState(null);
 
   const handleMouseEnter = (keyword) => {
@@ -13,6 +14,12 @@ const Custom = ({ topics, onRemoveKeyword }) => {
     setHoveredKeyword(null);
   };
 
+  const handleRemoveTopic = (topicIndex) => {
+    const updatedTopics = [...topics];
+    updatedTopics.splice(topicIndex, 1);
+    onRemoveTopic(updatedTopics);
+  };
+
   const handleRemoveKeyword = (topicIndex, keywordIndex) => {
     const updatedTopics = [...topics];
     const updatedKeywords = [...updatedTopics[topicIndex].keywords];
@@ -21,17 +28,24 @@ const Custom = ({ topics, onRemoveKeyword }) => {
       ...updatedTopics[topicIndex],
       keywords: updatedKeywords,
     };
-    onRemoveKeyword(updatedTopics);
+    onRemoveTopic(updatedTopics);
   };
-  
 
   return (
     <div>
       <h2>Custom Topics</h2>
       {topics.map((topic, topicIndex) => (
-        <div key={topicIndex}>
-          <h3>Topic {topicIndex + 1}</h3>
-          <p>Topic Name: {topic.topicName}</p>
+        <div className="custom-topic-container" key={topicIndex}>
+          <div className="upper-header">
+            <p>{topic.topicName}</p>
+            <button
+              type="button"
+              className="delete-button"
+              onClick={() => handleRemoveTopic(topicIndex)}
+            >
+              DELETE
+            </button>
+          </div>
           <ul className="keyword-list">
             {topic.keywords.map((keyword, keywordIndex) => (
               <li
@@ -48,7 +62,9 @@ const Custom = ({ topics, onRemoveKeyword }) => {
                 {hoveredKeyword === keyword && (
                   <span
                     className="remove-icon"
-                    onClick={() => handleRemoveKeyword(topicIndex, keywordIndex)}
+                    onClick={() =>
+                      handleRemoveKeyword(topicIndex, keywordIndex)
+                    }
                   >
                     &#10006;
                   </span>
@@ -64,7 +80,7 @@ const Custom = ({ topics, onRemoveKeyword }) => {
 
 Custom.propTypes = {
   topics: PropTypes.array.isRequired,
-  onRemoveKeyword: PropTypes.func.isRequired,
+  onRemoveTopic: PropTypes.func.isRequired,
 };
 
 export default Custom;

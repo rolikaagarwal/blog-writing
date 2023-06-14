@@ -1,0 +1,24 @@
+.custom-topic-container {
+  border: 0.1px solid rgb(185, 185, 185);
+  margin-bottom: 2px;
+  margin-left: 10px;
+  padding: 10px;
+  width: 80%;
+}
+.upper-header {
+  display: flex;
+  justify-content: space-between;
+}
+.delete-button {
+  background-color: red;
+  color: white;
+  padding: 5px 10px;
+}
+.delete-button:active {
+  transform: scale(0.5);
+  transition: 0.1s ease-in-out;
+  box-shadow: 0 0 3px 2px #ed6b66;
+}
+.delete-button:hover {
+  box-shadow: 0 0 3px 2px #ed6b66;
+}

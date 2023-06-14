@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
-const Modal = () => {
-  const [modal, setShowModal] = useState(false);
+const Modal = ({ onCloseModal, topic }) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const closeModal = () => {
-    setShowModal(false);
+    setSelectedImage(null);
+    onCloseModal();
   };
 
   const handleImageChange = (e) => {
@@ -114,12 +115,12 @@ const Modal = () => {
     );
   };
 
-  return (
-    <div>
-      <button onClick={() => setShowModal(true)}>Open Modal</button>
-      {modal && <MyModal />}
-    </div>
-  );
+  return <div>{topic && <MyModal />}</div>;
+};
+
+Modal.propTypes = {
+  onCloseModal: PropTypes.func.isRequired,
+  topic: PropTypes.string.isRequired,
 };
 
 export default Modal;

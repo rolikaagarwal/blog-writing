@@ -1,12 +1,11 @@
 .keyword-item {
-    display: inline-block;
-    padding: 1px 20px;
-    margin: 5px;
-    background-color: #f2f2f2;
-    border-radius: 15px;
-    
-  }
-  .add-keyword{
+  display: inline-block;
+  padding: 1px 20px;
+  margin: 5px;
+  background-color: #f2f2f2;
+  border-radius: 15px;
+}
+.add-keyword {
   background-color: #eb842f;
   color: white;
   border: none;
@@ -18,12 +17,12 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 4px;
-  }
-  .add-keyword:hover {
-    background-color: #45a049;
-  }
-  .submit-button{
-    background-color: #008cba;
+}
+.add-keyword:hover {
+  background-color: #45a049;
+}
+.submit-button {
+  background-color: #008cba;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -34,20 +33,20 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 4px;
-  }
-  .submit-button:hover {
-    background-color: #007ba3;
-  }
-  .input-topic-field,.input-keyword-field{
-    height: 40px;
-    background-color: #f2f2f2;
-    /* padding: 10px 40px; */
-    font-size: 18px;
-    border: 0;
-    outline: 0;
-    width: 100%;
-    margin-bottom: 2px;
-    text-align: center;
-    border-radius: 10px;
-  }
- 
+}
+.submit-button:hover {
+  background-color: #007ba3;
+}
+.input-topic-field,
+.input-keyword-field {
+  height: 40px;
+  background-color: #f2f2f2;
+  /* padding: 10px 40px; */
+  font-size: 18px;
+  border: 0;
+  outline: 0;
+  width: 100%;
+  margin-bottom: 2px;
+  text-align: center;
+  border-radius: 10px;
+}

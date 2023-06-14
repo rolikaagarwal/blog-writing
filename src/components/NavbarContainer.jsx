@@ -31,16 +31,19 @@ const NavbarContainer = () => {
     setShowForm(false);
   };
 
+  const handleRemoveTopic = (topicIndex) => {
+    const updatedTopics = [...customTopics];
+    updatedTopics.splice(topicIndex, 1);
+    setCustomTopics(updatedTopics);
+  };
+
   return (
     <>
       <h1>Categories</h1>
       <div className="main-nav-box">
         <ul className="navbar-components">
           <li className="navbar-itmes">ALL</li>
-          <li
-            className="navbar-itmes"
-            onClick={() => setShowCustomPage(true)}
-          >
+          <li className="navbar-itmes" onClick={() => setShowCustomPage(true)}>
             CUSTOM
           </li>
           <li className="navbar-itmes">ICP</li>
@@ -54,7 +57,7 @@ const NavbarContainer = () => {
           {customTopics.length === 0 ? (
             <p>No custom topics added yet.</p>
           ) : (
-            <Custom topics={customTopics} />
+            <Custom topics={customTopics} onRemoveTopic={handleRemoveTopic} />
           )}
         </>
       )}
