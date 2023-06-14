@@ -1,4 +1,10 @@
+import { useState } from "react";
+import Form from "./Form";
 const NavbarContainer = () => {
+  const [showForm, setShowForm] = useState(false);
+  const handleShowForm = () => {
+    setShowForm(!showForm);
+  };
   return (
     <>
       <h1>Categories</h1>
@@ -10,10 +16,10 @@ const NavbarContainer = () => {
           <li className="navbar-itmes">MISSION</li>
           <li className="navbar-itmes">PRODUCT</li>
         </ul>
-        <button>ADD TOPIC</button>
+        <button onClick={handleShowForm}>ADD TOPIC</button>
       </div>
+      {showForm && <Form></Form>}
     </>
   );
 };
-
 export default NavbarContainer;
