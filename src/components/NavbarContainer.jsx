@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import Form from "./Form";
 import Custom from "./Custom";
+import { Link } from "react-router-dom";
 
 const NavbarContainer = () => {
   const [showForm, setShowForm] = useState(false);
@@ -42,12 +43,16 @@ const NavbarContainer = () => {
       <h1>Categories</h1>
       <div className="main-nav-box">
         <ul className="navbar-components">
-          <li className="navbar-itmes">ALL</li>
+          <Link to="/All">
+            <li className="navbar-itmes">ALL</li>
+          </Link>
           <li className="navbar-itmes" onClick={() => setShowCustomPage(true)}>
             CUSTOM
           </li>
           <li className="navbar-itmes">ICP</li>
-          <li className="navbar-itmes">MISSION</li>
+          <Link to="/">
+            <li className="navbar-itmes">MISSION</li>
+          </Link>
           <li className="navbar-itmes">PRODUCT</li>
         </ul>
         <Button onClick={handleShowForm}>ADD TOPIC</Button>

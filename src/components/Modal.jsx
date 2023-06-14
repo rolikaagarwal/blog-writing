@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import axios from "axios";
 
 const Modal = ({ onCloseModal, topic }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -17,12 +18,38 @@ const Modal = ({ onCloseModal, topic }) => {
   const removeImage = () => {
     setSelectedImage(null);
   };
+ 
 
   const MyModal = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [titleHistory, setTitleHistory] = useState([]);
     const [contentHistory, setContentHistory] = useState([]);
+    const generateBlog = async (e) => {
+      e.stopPropagation();
+      const options = {
+        method: 'GET',
+        url: 'https://ai-writer1.p.rapidapi.com/text/',
+        params: {
+          text: topic.text
+        },
+        headers: {
+          'Content-Type': 'application/json',
+          'X-RapidAPI-Key': 'c3bcf6c898mshcea2afab040e920p13bd99jsna61abdf738ea',
+          'X-RapidAPI-Host': 'ai-writer1.p.rapidapi.com'
+        }
+      };
+      
+      try {
+        const response = await axios.request(options);
+        console.log(response.data);
+        setContent(response.data.response)
+      } catch (error) {
+        console.error(error);
+      }
+  
+    };
+    
 
     useEffect(() => {
       const handleUndo = (e) => {
@@ -53,7 +80,7 @@ const Modal = ({ onCloseModal, topic }) => {
       return () => {
         document.removeEventListener("keydown", handleUndo);
       };
-    }, [content, contentHistory.length, title, titleHistory.length]);
+    }, [content, contentHistory, title, titleHistory]);
 
     const handleTitleChange = (e) => {
       setTitle(e.target.value);
@@ -75,7 +102,7 @@ const Modal = ({ onCloseModal, topic }) => {
             id="title"
             className="title"
             placeholder="Enter Title"
-            value={title}
+            value={topic.text}
             onChange={handleTitleChange}
           />
           <label htmlFor="content">Content:</label>
@@ -105,7 +132,9 @@ const Modal = ({ onCloseModal, topic }) => {
             )}
           </div>
           <div className="generate-cancel-buttons">
-            <button className="generate">Generate</button>
+            <button className="generate" onClick={generateBlog}>
+              Generate
+            </button>
             <button className="cancel" onClick={closeModal}>
               Cancel
             </button>
@@ -120,7 +149,7 @@ const Modal = ({ onCloseModal, topic }) => {
 
 Modal.propTypes = {
   onCloseModal: PropTypes.func.isRequired,
-  topic: PropTypes.string.isRequired,
+  topic: PropTypes.object.isRequired,
 };
 
 export default Modal;
