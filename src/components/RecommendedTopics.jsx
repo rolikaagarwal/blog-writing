@@ -7,11 +7,6 @@ const RecommendedTopics = () => {
   const handleWriteClick = (index) => {
     setSelectedTopic(index);
   };
-
-  const handleCancelClick = () => {
-    setSelectedTopic(null);
-  };
-
   const topics = [
     {
       text: "The Importance of Establishing a Strong Online Presence for Small Businesses",
@@ -74,7 +69,10 @@ const RecommendedTopics = () => {
         </div>
       ))}
       {selectedTopic !== null && (
-        <Modal onCloseModal={handleCancelClick} topic={topics[selectedTopic]} />
+        <Modal
+          onCloseModal={() => setSelectedTopic(null)}
+          topic={topics[selectedTopic]}
+        />
       )}
     </>
   );
