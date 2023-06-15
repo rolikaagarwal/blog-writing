@@ -19,22 +19,24 @@ const Modal = ({ onCloseModal, topic }) => {
   const generateBlog = async (e) => {
     e.stopPropagation();
     const options = {
-      method: "GET",
-      url: "https://ai-writer1.p.rapidapi.com/text/",
-      params: {
-        text: topic.text,
-      },
+      method: "POST",
+      url: "https://api.openai.com/v1/completions ",
       headers: {
         "Content-Type": "application/json",
-        "X-RapidAPI-Key": "c3bcf6c898mshcea2afab040e920p13bd99jsna61abdf738ea",
-        "X-RapidAPI-Host": "ai-writer1.p.rapidapi.com",
+        Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+      },
+      data: {
+        model: "text-davinci-003",
+        prompt: topic.text,
+        max_tokens: 200,
+        temperature: 0,
       },
     };
 
     try {
       const response = await axios.request(options);
-      console.log(response.data);
-      setContent(response.data.response);
+      console.log(response.data.choices[0].text);
+      setContent(response.data.choices[0].text);
     } catch (error) {
       console.error(error);
     }
@@ -77,7 +79,7 @@ const Modal = ({ onCloseModal, topic }) => {
               {selectedImage && (
                 <div className="image-preview">
                   <img src={URL.createObjectURL(selectedImage)} alt="Preview" />
-                  <button onClick={()=>setSelectedImage(null)}>Remove</button>
+                  <button onClick={() => setSelectedImage(null)}>Remove</button>
                 </div>
               )}
             </div>
