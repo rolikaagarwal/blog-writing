@@ -1,6 +1,6 @@
 # Blog-Writing
 
-## TECH STACK USED- 
+## TECH STACK USED
 REACT JS , JAVASCRIPT
 
 ## About
