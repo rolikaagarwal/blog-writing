@@ -1,7 +1,7 @@
 # Blog-Writing
 
 ## TECH STACK USED
-REACT JS , JAVASCRIPT
+`REACT JS` , `JAVASCRIPT`
 
 ## About
 - I've developed a user-friendly website that automatically generates blogs based on topics provided by the user. You can input your desired topic, and the website will create a complete blog for you. Additionally, you have the option to include specific keywords to enhance the blog's content.
